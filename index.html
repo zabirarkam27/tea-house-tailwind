@@ -14,6 +14,12 @@
     <!-- tailwind cdn -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+        function welcome() {
+            alert("Code: SUMMER015");
+            var name = prompt("Please tell me your name");
+            alert("Thank you " + name + ". We get you. Our team member reach you soon");
+            console.log("your name is " + name)
+        }
         tailwind.config = {
             theme: {
                 extend: {
@@ -43,7 +49,7 @@
                     Tea and Botanical Solutions Supplier Give Optimum Satisfaction To
                     Your Taste Buds.
                 </p>
-                <button
+                <button onclick="welcome ()"
                     class="bg-gradient-to-r from-orange-500 to-red-500 px-5 py-3 rounded-lg text-white font-bold flex items-center">
                     Explore More
                     <i class="fa-solid fa-arrow-right text-xl -rotate-45 ml-2"></i>
@@ -252,7 +258,8 @@
         <section class="mb-24">
             <div class="text-center w-[800px] max-w-full mx-auto mb-6">
                 <h1 class="text-3xl md:text-4xl font-bold mb-5">News & Events</h1>
-                <p class="text-gray-500 text-justify">There are many variations of passages of Lorem Ipsum available, but the
+                <p class="text-gray-500 text-justify">There are many variations of passages of Lorem Ipsum available,
+                    but the
                     majority have suffered alteration in some form, by injected humour, or randomised words which don't
                     look even slightly believable. </p>
             </div>
