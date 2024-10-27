@@ -14,12 +14,12 @@
     <!-- tailwind cdn -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        function welcome() {
-            // alert("Code: SUMMER015");
-            var name = prompt("Please tell me your name");
-            alert("Thank you " + name + ". We respect your interest. Our team member reach you soon...");
-            console.log("your name is " + name)
-        }
+        // function welcome() {
+        //     // alert("Code: SUMMER015");
+        //     var name = prompt("Please tell me your name");
+        //     alert("Thank you " + name + ". We respect your interest. Our team member reach you soon...");
+        //     console.log("your name is " + name)
+        // }
         tailwind.config = {
             theme: {
                 extend: {
@@ -28,6 +28,30 @@
                     },
                 },
             },
+        }
+    </script>
+    <script>
+        function welcome() {
+            var name = prompt("Please tell me your name");
+            var phone = prompt("Please enter your phone number");
+
+            if (name && phone) {
+                alert("Thank you " + name + ". We respect your interest. Our team member will reach out to you soon...");
+
+                // Send name and phone number to Google Sheets
+                fetch("https://script.google.com/macros/s/AKfycbx9fqba33cgnURI9NMaVHurzXJvY1kahFy1QgERpbj8S8_uON3lsa7kDhVysamWE-TQ/exec", {
+                    method: "POST",
+                    body: JSON.stringify({ name: name, phone: phone }),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+                    .then(response => response.text())
+                    .then(data => console.log("Data sent to Google Sheets: " + data))
+                    .catch(error => console.error("Error:", error));
+            } else {
+                alert("Please enter both your name and phone number.");
+            }
         }
     </script>
 </head>
